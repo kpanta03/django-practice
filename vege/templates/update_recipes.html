@@ -1,0 +1,37 @@
+<!-- base.html kai kura lai reuse gareko. -->
+{% extends "base.html" %}
+{% block start %}
+
+<!-- file upload(like image) garni vaye form ma enctype="multipart/form-data" is necessary -->
+<div class="container mt-5 ">
+
+    <form class="col-6 mx-auto card p-3 shadow-lg" style="border: 1px solid black;" method="post" enctype="multipart/form-data"><!--frondend bata backend ma data pathauna post method use garni-->
+        {% csrf_token %}<!--It is compulsory to send form data. request ko origin yei server bata vako hoki nai check garxa. Hacking haru bata save garxa-->
+        <h2>Update Recipe</h2>
+        <hr>
+        <div class="mb-3">
+          <label for="exampleInputText" class="form-label">Recipe name</label>
+          <input name=" recipe_name" value="{{recipe.recipe_name}}" type="text" class="form-control" id="exampleInputText" aria-describedby="emailHelp" required>
+        </div>
+        <div class="mb-3">
+          <label for="exampleInput" class="form-label">Recipe_description</label>
+          <textarea name=" recipe_description"class="form-control" required>{{recipe.recipe_description}}</textarea>
+        </div>
+        <div class="mb-3">
+          <label for="exampleInput" class="form-label">Recipe_Category</label>
+          <input name=" recipe_category"  value="{{recipe.recipe_category}}" class="form-control" required></input>
+        </div>
+        
+        <div class="mb-3 form-check">
+          <input type="checkbox" class="form-check-input" id="exampleCheck1">
+          <label class="form-check-label" for="exampleCheck1">Check me out</label>
+        </div>
+        <button type="submit" class="btn btn-success">Update Recipe</button>
+      </form>
+
+      
+    
+</div>
+    
+
+{% endblock %}

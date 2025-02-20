@@ -1,0 +1,47 @@
+<!-- base.html kai kura lai reuse gareko. -->
+{% extends "base.html" %}
+{% block start %}
+
+<!-- file upload(like image) garni vaye form ma enctype="multipart/form-data" is necessary -->
+<div class="container mt-5 ">
+
+    <form class="col-6 mx-auto card p-3 shadow-lg" style="border: 1px solid black;" method="post" enctype="multipart/form-data"><!--frondend bata backend ma data pathauna post method use garni-->
+        {% csrf_token %}<!--It is compulsory to send form data. request ko origin yei server bata vako hoki nai check garxa. Hacking haru bata save garxa-->
+        <h2>Register</h2>
+        <hr>
+<!-- error message ko code -->
+        {% if messages %}
+       {{message.tags}}
+        <div class="alert alert-primary" role="alert">
+            {% for message in messages %}
+            {{message}}
+            {% endfor %}
+          </div>
+{% endif %}
+<!-- ya samam -->
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Firstname</label>
+            <input type="text" class="form-control" name="first_name" id="exampleInputEmail1" aria-describedby="emailHelp">
+        </div>
+
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Lastname</label>
+            <input type="text" class="form-control" name="last_name" id="exampleInputEmail1" aria-describedby="emailHelp">
+        </div>
+
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Username</label>
+              <input type="text" class="form-control" name="username" id="exampleInputEmail1" aria-describedby="emailHelp">
+            </div>
+
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label">Password</label>
+              <input type="password" class="form-control" name="password" id="exampleInputPassword1">
+            </div>
+            <p>Already have account? <a href="/login/">Login</a></p>
+            <button type="submit" class="btn btn-primary">Submit</button>
+      </form>  
+</div>
+    
+
+{% endblock %}

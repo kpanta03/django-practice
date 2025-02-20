@@ -1,0 +1,26 @@
+<!-- base.html kai kura lai reuse gareko. -->
+{% extends "base.html" %}
+{% block start %}
+
+<div class="container mt-5 ">
+    <h4>Rank:</h4>
+    <h4>Total:{{total_marks.total_marks}}</h4>
+    <table class="table table-striped">  
+    <tbody>
+            {% for marks in queryset %}
+          <tr>
+            <th scope="row">{{forloop.counter}}</th>
+            <td>
+              <b>{{marks.subject.subject_name}}</b>
+            </td>
+            <td>{{marks.marks}}</td>
+          </tr>
+          {% endfor %}
+        
+        </tbody>
+    </table>
+
+</div>
+    
+
+{% endblock %}

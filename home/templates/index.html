@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block start %}
+
+
+<!-- This is not good method -->
+    <a href="/about/">About</a>
+    <a href="/contact/">Contact</a>
+
+    <!-- HttpResponse ma vako kuraharu yeta lyayera rakhni. -->
+    <h1>Hey, I am django server</h1>
+    <p>This is a paragraph</p>
+    <p>This is dynamic content</p>
+
+    <!-- dynamic content lekheko views bata render garera-->
+     <!-- using peoples -->
+    <table class="container">
+        <tr>
+            <th>S.No</th>
+            <th>Name</th>
+            <th>Age</th>
+        </tr>
+
+        <!-- Template tags % wala enable loops, conditions, and inheritance. -->
+     <!--duita curly braces syntax in is used to display variables and dynamic content -->
+    <!--  endfor this should be used to indicate where the for loop ends. -->
+    <!-- endif this should be used to indicate where the if statement ends. -->
+        {% for people in peoples %}
+        <tr>
+            <td>{{forloop.counter}}</td>
+            <td>{{people.name}}</td>
+            <td>{{people.age}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <!-- using texts -->
+    <p>{{ text|truncatechars:40}}</p><!--only 40 characters matra show garxa.-->
+
+    <!-- using vegetables -->
+     <p>
+        {% if "cucumber" in vegetables%}
+        Yes Available
+        {% else %}
+        No Available
+        {% endif %}
+     </p>
+    
+{% endblock %}
+    
+
+
