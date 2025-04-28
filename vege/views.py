@@ -1,3 +1,5 @@
+
+
 from django.shortcuts import render,redirect
 from .models import *
 from django.contrib.auth.models import User#Authentication ko lagi
@@ -70,6 +72,27 @@ def update_recipe(request, id):
     
     context={'recipe':queryset}
     return render(request,'update_recipes.html',context)
+
+
+# Authentication in django
+#    Authentication is handled using django.contrib.auth app
+#django gives User model(django.contrib.auth.models.User)jasma built in views and forms hunxa for login, logout, password reset etc.
+# Authentication functions (login(), logout(), authenticate()).
+# Permission checking (user.is_authenticated, user.has_perm()).
+
+# Django user model has fields like username,emmail,password,first_name,last_name,is_staff,is_superuser,is_active.
+# important function to know
+# authenticate(request, username, password)
+# login(request, user)
+# logout(request)
+# builtin login and logout views ni hunxa.
+
+# 
+
+
+
+
+
 
 # login ko lagi
 def login_page(request):
