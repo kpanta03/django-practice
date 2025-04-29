@@ -127,16 +127,17 @@ def register_page(request):
         last_name=request.POST.get("last_name")
         username=request.POST.get("username")
         password=request.POST.get("password")
-        
 
+        # print(first_name,last_name,username,password) backend bata yiniharu ko value lyayera print
+        
 # username same haleko case ma k garni
         user=User.objects.filter(username=username)
 
         if user.exists():
             messages.info(request, "Username already exists.")
             return redirect('/register/')
-# 
 
+        # User model ko object create gareko yeuta
         user=User.objects.create(
             first_name=first_name,
             last_name=last_name,
