@@ -74,7 +74,7 @@ def update_recipe(request, id):
     return render(request,'update_recipes.html',context)
 
 
-# Authentication in django
+# Authentication in django(django afai le builtin authentication dinxa)
 #    Authentication is handled using django.contrib.auth app
 #django gives User model(django.contrib.auth.models.User)jasma built in views and forms hunxa for login, logout, password reset etc.
 # Authentication functions (login(), logout(), authenticate()).
@@ -86,9 +86,9 @@ def update_recipe(request, id):
 # login(request, user)
 # logout(request)
 # builtin login and logout views ni hunxa.
-
-# 
-
+# chatgpt ma how to do buildin login and logout hanera hera.
+# however yo built in authentication ko dherai limitaions ni xa like password strength checking, login attempts, thirt-parties authentication like facebook, twitter,object-level permissions.
+# tara yo sabai add garna milxa.
 
 
 
