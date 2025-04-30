@@ -1,5 +1,4 @@
 
-
 from django.shortcuts import render,redirect
 from .models import *
 from django.contrib.auth.models import User#Authentication ko lagi
@@ -94,7 +93,7 @@ def update_recipe(request, id):
 
 
 
-# login ko lagi
+# login ko lagi (afnai view banako)
 def login_page(request):
 
     if request.method=="POST":
